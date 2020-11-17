@@ -1,5 +1,5 @@
 <template>
-  <Login/>
+  <Login loginTitle="登录Hckm2系统"/>
 </template>
 
 <script>

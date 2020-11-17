@@ -12,11 +12,15 @@
               <div class="brand-wrapper">
                 <img src="../assets/images/logo.svg" alt="logo" class="logo">
               </div>
-              <p class="login-card-description">登录您的帐户</p>
+              <p class="login-card-description">{{loginTitle}}</p>
               <form action="#!">
                   <div class="form-group">
                     <label for="email" class="sr-only">Email</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="邮箱地址">
+                    <input type="email" name="email" id="email" class="form-control" placeholder="邮箱地址" @input="gainCognominal($event)">
+                  </div>
+                  <div class="form-group">
+                    <label for="phone" class="sr-only">phone</label>
+                    <input type="phone" name="phone" id="phone" class="form-control" placeholder="手机号码" @input="gainMonicker($event)">
                   </div>
                   <div class="form-group mb-4">
                     <label for="password" class="sr-only">Password</label>
@@ -24,7 +28,7 @@
                   </div>
                   <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="登录">
                 </form>
-                <a href="#!" class="forgot-password-link">忘记密码?</a>
+                <a href="#!" class="forgot-password-link">{{fullName}}忘记密码?</a>
                 <p class="login-card-footer-text">没有账户? <a href="#!" class="text-reset">登记帐户</a></p>
                 <nav class="login-card-footer-nav">
                   <a href="#!">使用条款、</a>
@@ -34,32 +38,6 @@
           </div>
         </div>
       </div>
-      <!-- <div class="card login-card">
-        <img src="assets/images/login.jpg" alt="login" class="login-card-img">
-        <div class="card-body">
-          <h2 class="login-card-title">Login</h2>
-          <p class="login-card-description">Sign in to your account to continue.</p>
-          <form action="#!">
-            <div class="form-group">
-              <label for="email" class="sr-only">Email</label>
-              <input type="email" name="email" id="email" class="form-control" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <label for="password" class="sr-only">Password</label>
-              <input type="password" name="password" id="password" class="form-control" placeholder="Password">
-            </div>
-            <div class="form-prompt-wrapper">
-              <div class="custom-control custom-checkbox login-card-check-box">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1">Remember me</label>
-              </div>              
-              <a href="#!" class="text-reset">Forgot password?</a>
-            </div>
-            <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Login">
-          </form>
-          <p class="login-card-footer-text">Don't have an account? <a href="#!" class="text-reset">Register here</a></p>
-        </div>
-      </div> -->
     </div>
   </main>
   </div>
@@ -67,7 +45,32 @@
 
 <script>
 export default {
-  name: 'Login'
+  name: 'Login',
+  data() {
+      return {
+          cognominal: '',
+          monicker: ''
+      }
+  },
+  props:{
+      loginTitle: String,
+  },
+  computed:{
+      fullName: function(){
+          console.log('cognominal:' + this.cognominal)
+          console.log('monicker:' + this.monicker)
+          return this.cognominal + ' ' + this.monicker
+        }
+  },
+  methods: {
+      gainCognominal(event){
+          this.cognominal = event.currentTarget.value
+          
+        },
+      gainMonicker(event){
+          this.monicker = event.currentTarget.value
+      }
+  }
 }
 </script>
 <style>
