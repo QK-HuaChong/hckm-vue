@@ -5,7 +5,12 @@
 <script> 
 
 export default {
-  name: 'App'
+  name: 'App',
+  methods:{
+    toIndexs() {
+      this.$router.push('/register');
+    }
+  }
 }
 </script>
 
