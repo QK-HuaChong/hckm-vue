@@ -1,15 +1,11 @@
 <template>
-  <Login loginTitle="登录Hckm2系统"/>
+  <router-view></router-view>
 </template>
 
-<script>
-import Login from './components/Login.vue'
+<script> 
 
 export default {
-  name: 'App',
-  components: {
-    Login
-  }
+  name: 'App'
 }
 </script>
 
