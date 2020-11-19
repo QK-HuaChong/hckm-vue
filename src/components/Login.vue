@@ -12,21 +12,22 @@
               <div class="brand-wrapper">
                 <img src="../assets/images/logo.svg" alt="logo" class="logo">
               </div>
-              <p class="login-card-description">{{loginTitle}}</p>
+              <p class="login-card-description">登录hckm系统</p>
               <form action="#!">
                   <div class="form-group">
                     <label for="email" class="sr-only">Email</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="邮箱地址" @input="gainCognominal($event)">
+                    <input type="email" name="email" id="email" class="form-control" placeholder="邮箱地址" @change="gainEmail($event)">
+                    <span>{{verifyEmail}}</span>
                   </div>
                   <div class="form-group">
                     <label for="phone" class="sr-only">Phone</label>
-                    <input type="phone" name="phone" id="phone" class="form-control" placeholder="手机号码" @input="gainMonicker($event)">
+                    <input type="phone" name="phone" id="phone" class="form-control" placeholder="手机号码" @change="gainPhone($event)">
                   </div>
                   <div class="form-group mb-4">
                     <label for="password" class="sr-only">Password</label>
                     <input type="password" name="password" id="password" class="form-control" placeholder="***********">
                   </div>
-                  <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="登录">
+                  <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="登录" @click="loginAction()">
                 </form>
                 <a href="#!" class="forgot-password-link">忘记密码?</a>
                 <p class="login-card-footer-text">没有账户? <router-link to="/register">点击注册</router-link></p>
@@ -49,32 +50,33 @@ export default {
   name: 'Login',
   data() {
       return {
-          cognominal: '',
-          monicker: ''
+          email: '',
+          phone: '',
       }
   },
   props:{
       loginTitle: String,
+      
   },
   computed:{
       fullName: function(){
-          console.log('cognominal:' + this.cognominal)
-          console.log('monicker:' + this.monicker)
-          return this.cognominal + ' ' + this.monicker
+          return this.email + ' ' + this.phone;
         }
   },
   methods: {
-      gainCognominal(event){
-          this.cognominal = event.currentTarget.value
-          
+      gainEmail(event){
+          this.email = event.currentTarget.value;
         },
-      gainMonicker(event){
-          this.monicker = event.currentTarget.value
+      gainPhone(event){
+          this.phone = event.currentTarget.value
+      },
+      loginAction(){
+          console.log("Login action")
       }
   }
 }
 </script>
-<style>
+<style sc>
 @import "../assets/css/bootstrap.min.css";
 @import "../assets/css/login.css";
 </style>
