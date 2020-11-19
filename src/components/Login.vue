@@ -17,7 +17,6 @@
                   <div class="form-group">
                     <label for="email" class="sr-only">Email</label>
                     <input type="email" name="email" id="email" class="form-control" placeholder="邮箱地址" @change="gainEmail($event)">
-                    <span>{{verifyEmail}}</span>
                   </div>
                   <div class="form-group">
                     <label for="phone" class="sr-only">Phone</label>
