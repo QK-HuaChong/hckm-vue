@@ -10,8 +10,10 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "install": "^0.13.0",
+    "styl": "^0.2.9",
     "vue": "^3.0.0",
-    "vue-router": "^4.0.0-alpha.7"
+    "vue-router": "^4.0.0-alpha.7",
+    "vuex": "^4.0.0-alpha.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

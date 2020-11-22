@@ -2,8 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routerHistory = createWebHistory()
 
 import Login from "../components/Login.vue";
-import Register from "../components/Register.vue";
-import Dashboard from "../components/menu/Dashboard.vue";
+// import Register from "../components/Register.vue";
+const Home = () => import('../components/home/Home');
+const Dashborad = () => import('../components/menu/Dashboard');
+const HomeNote = () => import("../components/home/HomeNote");
 
 
 const router = createRouter({
@@ -20,14 +22,31 @@ const router = createRouter({
         redirect: '/login'
       },
       {
-        path: '/index',
-        name: 'Dashboard',
-        component: Dashboard
+        path: '/dashboard',
+        component: Dashborad
+      },
+      {
+        path: '/home',
+        name: 'Home',
+        component: Home,
+        children: [
+          {
+            path: '',
+            redirect: '/home/note'
+          },
+          {
+            path: 'note',
+            component: HomeNote
+          }
+        ]
       },
       {
         path: '/register',
         name: 'Register',
-        component: Register
+        /**
+         * 路由懒加载
+         */
+        component: () => import('../components/Register')
       }
     ]
 })

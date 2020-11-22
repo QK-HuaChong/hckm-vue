@@ -12,15 +12,15 @@
               <div class="brand-wrapper">
                 <img src="../assets/images/logo.svg" alt="logo" class="logo">
               </div>
-              <p class="login-card-description">登录hckm系统</p>
+              <p class="login-card-description">登录hckm系统{{$store.state.name}}</p>
               <form action="#!">
                   <div class="form-group">
                     <label for="email" class="sr-only">Email</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="邮箱地址" @change="gainEmail($event)">
+                    <input type="email" name="email" id="email" v-model="email" class="form-control" placeholder="邮箱地址" @change="gainEmail()">
                   </div>
                   <div class="form-group">
                     <label for="phone" class="sr-only">Phone</label>
-                    <input type="phone" name="phone" id="phone" class="form-control" placeholder="手机号码" @change="gainPhone($event)">
+                    <input type="phone" name="phone" id="phone" v-model="phone" class="form-control" placeholder="手机号码" @change="gainPhone($event)">
                   </div>
                   <div class="form-group mb-4">
                     <label for="password" class="sr-only">Password</label>
@@ -54,8 +54,7 @@ export default {
       }
   },
   props:{
-      loginTitle: String,
-      
+      loginTitle: String, 
   },
   computed:{
       fullName: function(){
@@ -63,8 +62,8 @@ export default {
         }
   },
   methods: {
-      gainEmail(event){
-          this.email = event.currentTarget.value;
+      gainEmail(){
+          console.log(this.email);
         },
       gainPhone(event){
           this.phone = event.currentTarget.value
