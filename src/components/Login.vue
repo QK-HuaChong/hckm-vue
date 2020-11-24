@@ -12,7 +12,7 @@
               <div class="brand-wrapper">
                 <img src="../assets/images/logo.svg" alt="logo" class="logo">
               </div>
-              <p class="login-card-description">登录hckm系统{{$store.state.name}}</p>
+              <p class="login-card-description">登录hckm系统</p>
               <form action="#!">
                   <div class="form-group">
                     <label for="email" class="sr-only">Email</label>
@@ -20,11 +20,11 @@
                   </div>
                   <div class="form-group">
                     <label for="phone" class="sr-only">Phone</label>
-                    <input type="phone" name="phone" id="phone" v-model="phone" class="form-control" placeholder="手机号码" @change="gainPhone($event)">
+                    <input type="phone" name="phone" id="phone" v-model="phone" class="form-control" placeholder="手机号码" @change="gainPhone()">
                   </div>
                   <div class="form-group mb-4">
                     <label for="password" class="sr-only">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="***********">
+                    <input type="password" name="password" id="password" class="form-control" v-model="pwd" placeholder="***********">
                   </div>
                   <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="登录" @click="loginAction()">
                 </form>
@@ -51,6 +51,7 @@ export default {
       return {
           email: '',
           phone: '',
+          pwd: '',
       }
   },
   props:{
@@ -65,11 +66,17 @@ export default {
       gainEmail(){
           console.log(this.email);
         },
-      gainPhone(event){
-          this.phone = event.currentTarget.value
+      gainPhone(){
+        console.log(this.phone);
       },
       loginAction(){
-          console.log("Login action")
+        let email = this.email;
+        let pwd = this.pwd;
+        console.log("Login action" + email + '--'+ pwd);
+        if('huachongsz@163.com' == email && '123123' == pwd){
+          console.log("Login");
+          this.$router.replace({path:'/home'});
+        }
       }
   }
 }
