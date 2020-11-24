@@ -75,6 +75,6 @@ export default {
 }
 </script>
 <style sc>
-@import "../assets/css/bootstrap.min.css";
 @import "../assets/css/login.css";
 </style>
+ 

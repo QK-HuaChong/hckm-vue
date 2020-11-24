@@ -12,11 +12,13 @@
         </div>
       </div>
     </div>
+    <head-layout></head-layout>
   </div>
 </template>
 <script>
 import TabBar from "./TabBar";
 import TabBarItem from "./TabBarItem";
+import HeadLayout from "../layout/HeadLayout";
 
 export default {
   name: "Dashboard",
@@ -28,9 +30,10 @@ export default {
   components: {
     TabBar,
     TabBarItem,
+    HeadLayout,
   },
 };
 </script>
 <style scoped>
-@import "../../assets/css/menuber/sidebar.css";
+
 </style>
