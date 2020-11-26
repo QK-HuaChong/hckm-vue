@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 const routerHistory = createWebHistory()
 
-import Login from "../components/Login.vue";
+import Login from "components/content/Login.vue";
 // import Register from "../components/Register.vue";
-const Home = () => import('../components/home/Home');
-const Dashborad = () => import('../components/menu/Dashboard');
-const HomeNote = () => import("../components/home/HomeNote");
-
+const Home = () => import('components/content/home/Home');
+const Dashborad = () => import('components/content/menu/Dashboard');
+const HomeNote = () => import('components/content/home/HomeNote');
+const Register = () => import('components/content/Register');
 
 const router = createRouter({
     history: routerHistory,
@@ -46,7 +46,7 @@ const router = createRouter({
         /**
          * 路由懒加载
          */
-        component: () => import('../components/Register')
+        component: Register
       }
     ]
 })

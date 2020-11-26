@@ -5,12 +5,12 @@
       <div class="card login-card">
         <div class="row no-gutters">
           <div class="col-md-5">
-            <img src="../assets/images/login.jpg" alt="login" class="login-card-img">
+            <img src="~assets/images/login.jpg" alt="login" class="login-card-img">
           </div>
           <div class="col-md-7">
             <div class="card-body">
               <div class="brand-wrapper">
-                <img src="../assets/images/logo.svg" alt="logo" class="logo">
+                <img src="~assets/images/logo.svg" alt="logo" class="logo">
               </div>
               <p class="login-card-description">登录hckm系统</p>
               <form action="#!">
@@ -82,6 +82,6 @@ export default {
 }
 </script>
 <style sc>
-@import "../assets/css/login.css";
+@import "~assets/css/login.css";
 </style>
  

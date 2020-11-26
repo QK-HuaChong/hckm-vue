@@ -20,7 +20,7 @@ import TabBar from "./TabBar";
 import TabBarItem from "./TabBarItem";
 import HeadLayout from "../layout/HeadLayout";
 
-import {request} from "../../network/request"
+import {request} from "@/network/request"
 
 export default {
   
